@@ -35,7 +35,7 @@ projects = [
         "hero": "img/svg/habit-tracking-hero.png",
         "categories":["Programming", "Tech", "Apps"],
         "slug": "tech_projects",
-        "prod": "https://github.com/kalathiln",
+        "prod": "https://github.com/kalathiln/msdocs-python-flask-webapp-quickstart",
     },
     {
         "name" : "Shop",

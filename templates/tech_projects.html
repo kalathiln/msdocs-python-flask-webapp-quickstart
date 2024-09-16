@@ -1,45 +1,115 @@
 {% extends 'base.html' %}
 {% block content %}
-    <main class="main main--project">
-        <div>
-            <img
-                class="hero"
-                src="{{ url_for('static', filename=project['hero']) }}"
-                alt="A hand holding a pen, about to write something in a project planner."
-            />
+<main class="main main--project">
+    <div>
+        <img class="hero" src="{{ url_for('static', filename=project['hero']) }}"
+            alt="A hand holding a pen, about to write something in a project planner." />
 
-            <article class="project">
-                <article class="project__content">
-                    <h2 class="project__heading">{{ project['name'] }}</h2>
+        <article class="project">
+            <article class="project__content">
+                <!-- <h2 class="project__heading">{{ project['name'] }}</h2> -->
 
-                    <p>
-                        At ABN AMRO in Amsterdam, I played a pivotal role in migrating their internet banking system to cloud infrastructure
-                         using Microsoft Azure, improving system reliability and scalability. My expertise includes implementing new features,
-                          refactoring legacy code, and enhancing code quality, all while ensuring robust security and disaster recovery measures.
-                    </p>
-                    <p>
-                        Coding is extremely rewarding. As you learn, things start to click and make sense.
-                        You can join the dots of all the things that weren't quite clear before.
-                    </p>
+                <h2>Deploy Flask/Django with MongoDB on Azure</h2>
+
+                <p>If you have a Flask or Django application using MongoDB and want to host it on Azure, you can do so
+                    by leveraging several Azure services. Here's a guide to help you deploy the backend and frontend
+                    using Azure's free tiers.</p>
+
+                <h1>1. Separate Frontend from Backend</h1>
+                <p>If your application has a frontend (HTML, CSS, JavaScript), you can host it separately using
+                    <strong>Azure Static Web Apps</strong>. Meanwhile, the backend (Flask or Django) and MongoDB can be
+                    hosted on different services:</p>
+                <ul>
+                    <li>Host static frontend files using <strong>Azure Static Web Apps</strong>.</li>
+                    <li>Host the Flask/Django backend using <strong>Azure App Service</strong>.</li>
+                    <li>Host the MongoDB database using <strong>Azure Cosmos DB (MongoDB API)</strong>.</li>
+                </ul>
+
+                <h1>2. Deploy Backend (Flask/Django) to Azure App Service</h1>
+                <p>Follow these steps to deploy your Flask/Django backend:</p>
+
+                <h3>Steps:</h3>
+                <ul>
+                    <li><strong>Create an Azure App Service:</strong></li>
+                    <ol>
+                        <li>Go to the <a href="https://portal.azure.com">Azure Portal</a>.</li>
+                        <li>Navigate to <strong>App Services</strong> and click <strong>Create</strong>.</li>
+                        <li>Select <strong>Python</strong> as the runtime stack and set up other configuration options
+                            like region and OS (Linux is recommended).</li>
+                    </ol>
+                    <li><strong>Set up Deployment:</strong></li>
+                    <ol>
+                        <li>Ensure your project has a <code>requirements.txt</code> for dependencies and a
+                            <code>Procfile</code> to define how the app runs.</li>
+                        <li>Push your code to GitHub or Bitbucket (or local Git) and connect it to Azure using the
+                            <strong>Deployment Center</strong> in the Azure Portal.</li>
+                    </ol>
+                    <li><strong>Set up MongoDB on Azure Cosmos DB:</strong></li>
+                    <ol>
+                        <li>Go to <strong>Azure Cosmos DB</strong> in the Azure Portal.</li>
+                        <li>Create a new database using the <strong>MongoDB API</strong>.</li>
+                        <li>Configure your app's connection string to use the new Cosmos DB instance.</li>
+                    </ol>
+                </ul>
+
+                <h1>3. Host Frontend Using Azure Static Web Apps (Optional)</h1>
+                <p>If your frontend is separate (e.g., a React or Angular app), you can host it on <strong>Azure Static
+                        Web Apps</strong>. To do this:</p>
+                <ul>
+                    <li>Go to the Azure Portal and create a new <strong>Static Web App</strong>.</li>
+                    <li>Link it to your frontend code repository (such as GitHub).</li>
+                    <li>In the setup, point the API section to the backend hosted on Azure App Service (your Flask or
+                        Django app).</li>
+                </ul>
+
+                <h1>4. Connect Frontend with Backend</h1>
+                <p>Ensure that the frontend communicates with the backend by configuring the API endpoints. Be sure to:
+                </p>
+                <ul>
+                    <li>Configure <strong>CORS settings</strong> on the backend (Flask/Django) to allow access from your
+                        frontend domain.</li>
+                    <li>Use the correct API URLs to connect the frontend with the backend on Azure App Service.</li>
+                </ul>
+
+                <h1>Free Tier Usage</h1>
+                <p>Azure provides free tiers for hosting small projects:</p>
+                <ul>
+                    <li><strong>Azure Static Web Apps</strong> offers a free tier for hosting static frontends.</li>
+                    <li><strong>Azure App Service</strong> has a free tier for hosting backend apps, though it has
+                        limited resources.</li>
+                    <li><strong>Azure Cosmos DB</strong> provides a free tier with up to 400 RU/s for MongoDB, which
+                        should suffice for small projects.</li>
+                </ul>
+
+                <h1>Summary of Steps</h1>
+                <ul>
+                    <li>Deploy the Flask/Django app to <strong>Azure App Service</strong>.</li>
+                    <li>Host MongoDB using <strong>Azure Cosmos DB (MongoDB API)</strong>.</li>
+                    <li>Optionally host your static frontend using <strong>Azure Static Web Apps</strong>.</li>
+                    <li>Connect the frontend to the backend using appropriate API endpoints.</li>
+                </ul>
+            </article>
+
+            <section>
+                <article class="project__meta-group">
+                    <h3 class="project__heading project__heading--meta">Technologies used</h3>
+
+                    <ul class="technology-list">
+                        <li class="technology-list__item">Python</li>
+                        <li class="technology-list__item">HTML</li>
+                        <li class="technology-list__item">CSS</li>
+                    </ul>
                 </article>
 
-                <section>
-                    <article class="project__meta-group">
-                        <h3 class="project__heading project__heading--meta">Technologies used</h3>
+                <a class="cta" href="{{ project['prod'] }}">
+                    <img class="cta__icon" src="{{ url_for('static', filename='img/svg/pointer.svg') }}">
+                    View code base
+                </a>
+            </section>
+        </article>
+    </div>
+</main>
 
-                        <ul class="technology-list">
-                            <li class="technology-list__item">Python</li>
-                            <li class="technology-list__item">HTML</li>
-                            <li class="technology-list__item">CSS</li>
-                        </ul>
-                    </article>
 
-                    <a class="cta" href="{{ project['prod'] }}">
-                        <img class="cta__icon" src="{{ url_for('static', filename='img/svg/pointer.svg') }}">
-                        View in production
-                    </a>
-                </section>
-            </article>
-        </div>
-    </main>
+
 {% endblock %}

@@ -271,6 +271,7 @@ body {
     .project__content {
       flex: 7;
       margin-right: 3rem;
+      margin-left: 3rem;
       padding: 0;
     }
   }
@@ -341,6 +342,14 @@ body {
     font-family: monospace;
     font-size: small;
     line-height: 1rem;
+}
+
+.main--myshop{
+    font-family: monospace;
+    font-size: xx-large;
+    display: inline-block;
+    line-height: 2rem;
+    text-align: center;
 }
 
 /* for error handler page */
