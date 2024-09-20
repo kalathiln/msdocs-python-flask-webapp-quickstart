@@ -6,7 +6,7 @@ from flask import (Flask, redirect, render_template, request, abort,
 projects = [
     
     {
-        "name" : "Photography in Abstract",
+        "name" : "Abstract",
         "thumb": "/img/headshot.png",
         "hero": "",
         "categories":["Abstract","Portrait", "Landscape"],
@@ -17,7 +17,7 @@ projects = [
         "name" : "Germany",
         "thumb": "/img/germany_subway.png",
         "hero": "",
-        "categories":["Landscape","Wald" , "subway" ],
+        "categories":["Deutschland","Berlin", "Darmstadt"],
         "slug": "germany-photography",
         "prod": "https://udemy.com",
     },
@@ -25,7 +25,7 @@ projects = [
         "name" : "India",
         "thumb": "/img/nandi_temple.png",
         "hero": "",
-        "categories":["India","people", "culture"],
+        "categories":["Culture","Colours","People"],
         "slug": "india-photography",
         "prod": "https://udemy.com",
     },
@@ -33,7 +33,7 @@ projects = [
         "name" : "Technology",
         "thumb": "/img/projects_main_thumb.png",
         "hero": "img/svg/habit-tracking-hero.png",
-        "categories":["Programming", "Tech", "Apps"],
+        "categories":["Programming"],
         "slug": "tech_projects",
         "prod": "https://github.com/kalathiln/msdocs-python-flask-webapp-quickstart",
     },
@@ -41,12 +41,10 @@ projects = [
         "name" : "Shop",
         "thumb": "/img/giraffe_small.png",
         "hero": "",
-        "categories":["K&K", "Ganesha", "Psylosophy"],
+        "categories":["The K&K Psylosophy"],
         "slug": "myshop",
         "prod": "https://www.redbubble.com/de/people/KremserKalathil/shop?asc=u",
     }
-
-    
 
 ]
 
@@ -71,35 +69,12 @@ def contact():
 def project(slug):
     if slug not in slug_to_project:
         abort(404)
-
-    # return render_template("project_"+slug+".html")
     return render_template(f"{slug}.html",
                             project=slug_to_project[slug])
 
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("404.html") , 404
-# @app.route('/')
-# def index():
-#    print('Request for index page received')
-#    return render_template('index.html')
-
-# @app.route('/favicon.ico')
-# def favicon():
-#     return send_from_directory(os.path.join(app.root_path, 'static'),
-#                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
-
-# @app.route('/hello', methods=['POST'])
-# def hello():
-#    name = request.form.get('name')
-
-#    if name:
-#        print('Request for hello page received with name=%s' % name)
-#        return render_template('hello.html', name = name)
-#    else:
-#        print('Request for hello page received with no name or blank name -- redirecting')
-#        return redirect(url_for('index'))
-
 
 if __name__ == '__main__':
    app.run()

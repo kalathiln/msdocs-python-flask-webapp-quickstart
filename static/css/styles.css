@@ -12,8 +12,6 @@ html {
 body {
     margin-top: 80px;
     background-image: linear-gradient(to bottom right, #feffe9, #ffffff);
-    /* background-image: linear-gradient( 135deg, #F05F57 10%, #360940 100%); */
-    /* background-image: linear-gradient( 135deg, #636363 10%, #a2ab58 100%); */
 }
 
 .header {
@@ -27,7 +25,7 @@ body {
 
 .nav {
     margin-bottom: 2.3rem;
-    font-size: 33px;
+    font-size: 27px;
 }
 
 .nav__link:not(:last-of-type) {
@@ -42,13 +40,14 @@ body {
 }
 
 .main {
-    
+
     display: flex;
     justify-content: center;
     margin: 0 auto;
 }
 
-.main--aboutme, .main--error {
+.main--aboutme,
+.main--error {
     display: flex;
     margin: 2rem;
     padding: 0 1rem;
@@ -57,7 +56,7 @@ body {
     text-align: justify;
     justify-content: center;
     flex-direction: column;
-    
+
 }
 
 .main--aboutme__article {
@@ -67,7 +66,6 @@ body {
 }
 
 .contact {
-    /* display: flex; */
     display: grid;
     justify-content: center;
     margin-bottom: 1.5rem;
@@ -107,8 +105,6 @@ body {
         grid-template-columns: repeat(2, 1fr);
         max-width: 45rem;
     }
-
-    
 }
 
 @media(min-width : 80em) {
@@ -126,7 +122,6 @@ body {
 .project-card__image {
     max-width: 100%;
     margin-bottom: 1rem;
-    /* transition: transform cubic-bezier(0.075, 0.82, 0.165, 1); */
     transition: transform 0.2s ease-in-out;
     border-radius: 1.25rem;
     align-self: first baseline;
@@ -144,7 +139,8 @@ body {
     color: #031a2c;
 }
 
-.project-card:hover .project-card__image,  .img__gallery:hover img{
+.project-card:hover .project-card__image,
+.img__gallery:hover img {
     transform: translateY(-0.09rem);
 }
 
@@ -158,8 +154,10 @@ body {
     margin: 0 0 0.75rem;
     color: #043e29;
     list-style: none;
-    font-size: 1rem;
+    font-size: 0.69rem;
+    font-weight: bolder;
     letter-spacing: 0.075rem;
+    text-wrap: wrap;
 
 }
 
@@ -204,7 +202,7 @@ body {
 }
 
 .main--india-photography,
-.main--abstract-photography, 
+.main--abstract-photography,
 .main--germany-photography {
     padding: 10px;
     max-width: 1440px;
@@ -247,84 +245,84 @@ body {
 .hero {
     width: 100%;
     margin-bottom: 1.5rem;
-  }
-  
-  .project {
+}
+
+.project {
     display: flex;
     flex-direction: column;
     font-size: 0.5rem;
     max-width: 50rem;
     padding: 0 1rem;
-  }
-  
-  .project__content {
+}
+
+.project__content {
     margin-bottom: 1rem;
     line-height: 150%;
-  }
-  
-  @media (min-width: 48.75em) {
+}
+
+@media (min-width: 48.75em) {
     .project {
-      flex-direction: row;
-      padding: 0;
+        flex-direction: row;
+        padding: 0;
     }
-  
+
     .project__content {
-      flex: 7;
-      margin-right: 3rem;
-      margin-left: 3rem;
-      padding: 0;
+        flex: 7;
+        margin-right: 3rem;
+        margin-left: 3rem;
+        padding: 0;
     }
-  }
-  
-  .project__heading {
+}
+
+.project__heading {
     margin: 0;
     font-size: 1rem;
     line-height: 150%;
     text-align: center;
-  }
-  
-  .project__heading--meta {
+}
+
+.project__heading--meta {
     font-size: inherit;
     margin-bottom: 1rem;
-  }
-  
-  .project__meta-group {
+}
+
+.project__meta-group {
     margin-bottom: 1rem;
-  }
-  
-  .project__meta-group,
-  .cta {
+}
+
+.project__meta-group,
+.cta {
     padding: 1rem;
     background-color: #d4eafa;
     border-radius: 6px;
-  }
-  
-  .cta {
+}
+
+.cta {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     color: #1c2023;
     text-decoration: none;
-  }
-  
-  .cta:hover {
+}
+
+.cta:hover {
     text-decoration: underline;
-  }
-  
-  .cta__icon {
+}
+
+.cta__icon {
     margin-right: 0.5rem;
     transform: translateY(1px);
-  }
-  
-  .technology-list {
+}
+
+.technology-list {
     list-style: none;
     padding-left: 0.75rem;
     margin: 0;
     line-height: 1.75;
-  }
-  
-  .technology-list__item:before {
+}
+
+.technology-list__item:before {
     content: "";
     display: inline-block;
     height: 1rem;
@@ -333,18 +331,18 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 0.5rem;
-  
+
     /* necessary for vertical centering */
     transform: translateY(0.36rem);
 }
 
-.main--project{
+.main--project {
     font-family: monospace;
     font-size: small;
     line-height: 1rem;
 }
 
-.main--myshop{
+.main--myshop {
     font-family: monospace;
     font-size: xx-large;
     display: inline-block;
@@ -353,4 +351,3 @@ body {
 }
 
 /* for error handler page */
-
