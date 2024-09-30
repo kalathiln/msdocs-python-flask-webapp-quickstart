@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="main main--streams">
+    <div>
+        <img class="hero" src="{{ url_for('static', filename=project['hero']) }}"
+            alt="A hand holding a pen, about to write something in a project planner." />
+
+        <article class="project">
+            <article class="project__content">
+
+
+                <h1>Java Streams Examples</h1>
+                <p>This page provides examples of how to use Java Streams along with explanations for each operation.
+                </p>
+
+                <div class="section">
+                    <h2>1. Creating a Stream from a Collection</h2>
+                    <p>We can create a stream from any collection, such as a list or set, using the
+                        <code>stream()</code>
+                        method.</p>
+                    <code>
+                        List&lt;String&gt; names = Arrays.asList("John", "Jane", "Jack", "Jill");<br>
+                        Stream&lt;String&gt; stream = names.stream(); // Create a stream from a list
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>2. Filtering a Stream</h2>
+                    <p>Using <code>filter()</code>, we can filter elements from a stream that match a condition, such as
+                        names
+                        that start with "J".</p>
+                    <code>
+                        List&lt;String&gt; names = Arrays.asList("John", "Jane", "Jack", "Jill");<br>
+                        List&lt;String&gt; filteredNames = names.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.filter(name -&gt; name.startsWith("J"))<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.toList());<br>
+                        // Output: [John, Jane, Jack, Jill]
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>3. Mapping a Stream (Transforming Data)</h2>
+                    <p>The <code>map()</code> function transforms each element of the stream, in this case, squaring
+                        numbers.
+                    </p>
+                    <code>
+                        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5);<br>
+                        List&lt;Integer&gt; squares = numbers.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.map(n -&gt; n * n)  // Transform each number to its square<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.toList());<br>
+                        // Output: [1, 4, 9, 16, 25]
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>4. Reducing a Stream (Summing Values)</h2>
+                    <p>We can use the <code>reduce()</code> method to accumulate elements in the stream, such as summing
+                        numbers.</p>
+                    <code>
+                        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5);<br>
+                        int sum = numbers.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.reduce(0, Integer::sum);  // Summing all elements in the list<br>
+                        // Output: 15
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>5. Sorting a Stream</h2>
+                    <p>The <code>sorted()</code> method sorts the elements of a stream in natural order or a custom
+                        order.
+                    </p>
+                    <code>
+                        List&lt;String&gt; names = Arrays.asList("John", "Jane", "Jack", "Jill");<br>
+                        List&lt;String&gt; sortedNames = names.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.sorted()  // Sort the names in natural order<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.toList());<br>
+                        // Output: [Jack, Jane, Jill, John]
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>6. Distinct Elements from a Stream</h2>
+                    <p>The <code>distinct()</code> method removes duplicates from the stream.</p>
+                    <code>
+                        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 2, 3, 4, 4, 5);<br>
+                        List&lt;Integer&gt; distinctNumbers = numbers.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.distinct()  // Remove duplicates<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.toList());<br>
+                        // Output: [1, 2, 3, 4, 5]
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>7. Stream from an Array</h2>
+                    <p>We can also create a stream from an array using the <code>Arrays.stream()</code> method.</p>
+                    <code>
+                        String[] fruits = {"Apple", "Banana", "Orange"};<br>
+                        Stream&lt;String&gt; fruitStream = Arrays.stream(fruits);  // Create a stream from an array
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>8. Parallel Stream</h2>
+                    <p>Using <code>parallelStream()</code>, the stream operations are performed in parallel, leveraging
+                        multiple
+                        threads for performance.</p>
+                    <code>
+                        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5);<br>
+                        numbers.parallelStream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.forEach(n -&gt; System.out.println(n * n));  // Perform operations in parallel
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>9. Limit and Skip Operations</h2>
+                    <p>The <code>skip()</code> method skips a specified number of elements, and the <code>limit()</code>
+                        method
+                        limits the number of elements processed.</p>
+                    <code>
+                        List&lt;Integer&gt; numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);<br>
+                        List&lt;Integer&gt; limitedNumbers = numbers.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.skip(2)  // Skip the first 2 elements<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.limit(3) // Limit to 3 elements<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.toList());<br>
+                        // Output: [3, 4, 5]
+                    </code>
+                </div>
+
+                <div class="section">
+                    <h2>10. FlatMap (For Nested Collections)</h2>
+                    <p><code>flatMap()</code> flattens nested collections, allowing us to process each element
+                        individually.
+                    </p>
+                    <code>
+                        List&lt;List&lt;String&gt;&gt; listOfLists = Arrays.asList(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Arrays.asList("a", "b", "c"),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Arrays.asList("d", "e", "f")<br>
+                        );<br>
+                        List&lt;String&gt; flattenedList = listOfLists.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.flatMap(List::stream)  // Flatten the nested lists<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.toList());<br>
+                        // Output: [a, b, c, d, e, f]
+                    </code>
+                </div>
+            </article>
+
+            <section>
+                <article class="project__meta-group">
+                    <h3 class="project__heading project__heading--meta">Technology</h3>
+
+                    <ul class="technology-list">
+                        <li class="technology-list__item">Java</li>
+                        <li class="technology-list__item">Streams</li>
+                        <li class="technology-list__item">Lambda functions</li>
+                        <li class="technology-list__item">Functional Programming</li>
+                    </ul>
+                </article>
+
+                <a class="cta" href="{{ project['prod'] }}">
+                    <img class="cta__icon" src="{{ url_for('static', filename='img/svg/pointer.svg') }}">
+                    View code base
+                </a>
+            </section>
+        </article>
+    </div>
+</main>
+
+
+
+{% endblock %}

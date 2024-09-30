@@ -38,6 +38,14 @@ projects = [
         "prod": "https://github.com/kalathiln/msdocs-python-flask-webapp-quickstart",
     },
     {
+        "name" : "Streams in Java",
+        "thumb": "/img/svg/rest-api-docs.png",
+        "hero": "img/svg/java_prog_hero1.png",
+        "categories":["Programming","Java"],
+        "slug": "streams-in-java",
+        "prod": "https://github.com/kalathiln/msdocs-python-flask-webapp-quickstart",
+    },
+    {
         "name" : "Shop",
         "thumb": "/img/giraffe_small.png",
         "hero": "",
