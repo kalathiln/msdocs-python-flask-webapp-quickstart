@@ -247,7 +247,7 @@ body {
     margin-bottom: 1.5rem;
     max-height: 75%;
     border-radius: 10px;
-    
+
 
     /* position:inherit; */
     /* background: linear-gradient(180deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .06) 44%, transparent 55%, transparent 65%, rgba(0, 0, 0, .05) 72%, rgba(0, 0, 0, .5)); */
@@ -367,13 +367,16 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
 footer a {
     color: #86abda;
     text-decoration: none;
 }
+
 footer a:hover {
     text-decoration: underline;
 }
+
 .footer-content p {
     margin: 0;
 }
@@ -394,12 +397,13 @@ code {
     border-radius: 10px;
     border-left: 4px solid #ccc;
     color: rgba(0, 0, 0, .9);
-    font-family:  monospace;
+    font-family: monospace;
     margin-bottom: 20px;
     overflow-x: auto;
     font-size: medium;
-    
+
 }
+
 .section {
     margin-bottom: 30px;
 }
@@ -414,3 +418,20 @@ code {
 
 
 /* for error handler page */
+
+.main--photography--content {
+    display: block;
+    text-align: justify;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    margin-bottom: 27px;
+}
+
+.main--photography--quote {
+    display: block;
+    text-align: center;
+    font-size: 27px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 27px;
+    margin-top: 27px;
+}
